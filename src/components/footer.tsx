@@ -26,7 +26,7 @@ export function Footer() {
               alt="Google performance"
               width={100}
               height={30}
-              className="h-auto w-auto"
+              className="h-auto w-50"
             />
           </div>
 
