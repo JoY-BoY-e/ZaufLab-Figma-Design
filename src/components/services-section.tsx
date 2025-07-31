@@ -54,45 +54,54 @@ export function ServicesSection() {
           </h2>
         </div>
 
-        <div ref={sliderRef} className="keen-slider group overflow-visible relative">
+        <div ref={sliderRef} className="keen-slider group overflow-visible relative ">
           {services.map((service, index) => (
             <div
               key={index}
-              className="keen-slider__slide flex items-stretch justify-center overflow-visible py-2"
+              className="keen-slider__slide flex items-stretch justify-center overflow-visible py-5"
             >
-              <Card
+             <Card
   className={`
-    flex flex-col justify-between bg-white rounded-xl
-    border-[2px] border-transparent
-    shadow-md hover:shadow-lg
+    flex flex-col justify-between bg-[#FAFAFA] rounded-[7px]
+    border-2 border-transparent
+    shadow-[0px_4px_30px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_30px_rgba(0,0,0,0.1)]
     hover:scale-[1.02]
     transition-all duration-300
-    group-hover:translate-y-1
-    hover:-translate-y-1 hover:z-10
-    max-w-sm
+    group-hover:-translate-y-1 group-hover:z-10
+    hover:translate-y-2
+    w-[330px] h-[326px]
   `}
   style={{
     borderColor: 'transparent',
   }}
   onMouseEnter={(e) => {
-    e.currentTarget.style.borderColor = '#FF77A5'; // Change border color on hover
+    e.currentTarget.style.borderColor = '#993375';
   }}
   onMouseLeave={(e) => {
-    e.currentTarget.style.borderColor = 'transparent'; // Remove border when not hovered
+    e.currentTarget.style.borderColor = 'transparent';
   }}
 >
-  <CardContent className="p-6">
-    <div className="w-14 h-14 rounded-full border-2 flex items-center justify-center text-2xl mb-6 text-pink-600"
-      style={{ backgroundColor: "#FFF0F5",
-        borderColor: "#FF77A5"
+  <CardContent className="p-[4.8%]">
+    {/* Icon container - exact Figma dimensions */}
+    <div 
+      className="w-[58px] h-[58px] rounded-full flex items-center justify-center mb-[20px]"
+      style={{
+        backgroundColor: "#FAFAFA",
+        border: "1px solid #FF77A5"
       }}
     >
-      {service.icon}
+      <span className="text-[34px]">{service.icon}</span>
     </div>
-    <h3 className="text-lg font-semibold text-pink-700 mb-2">
+    
+    {/* Title - with gradient text when active */}
+    <h3 className="font-inter font-semibold text-[20px] leading-[27px] mb-[20px] text-[#2D3748]">
       {service.title}
     </h3>
-    <p className="text-gray-600 text-sm">{service.description}</p>
+    
+    {/* Description - exact Figma styling */}
+    <p className="font-inter font-normal text-[14px] leading-[23px] text-[#718096]">
+      {service.description}
+    </p>
   </CardContent>
 </Card>
 

@@ -30,9 +30,9 @@ export function GreatSoftwareSection() {
 
         {/* Section Header */}
         <div className="text-center mb-20">
-          <div className="w-12 h-1 rounded-full bg-purple-600 mx-auto mb-4"></div>
-          <p className="text-gray-500 text-4xl">Way of building</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Great Software</h2>
+          <div className="mx-auto h-[0.4rem] w-20 bg-gradient-to-r from-[#57007B] to-[#F76680] mb-6" />
+          <p className="text-gray-800 text-3xl mb-3">Way of building</p>
+          <h2 className="text-4xl sm:text-4xl font-extrabold text-gray-900">Great Software</h2>
         </div>
 
         {/* Case Blocks */}
@@ -46,14 +46,14 @@ export function GreatSoftwareSection() {
               >
                 {/* Text Content */}
                 <div className="w-full lg:w-1/2">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Build the right team to scale</h3>
-                  <p className="text-gray-600 mb-4">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-10">Build the right team to scale</h3>
+                  <p className="text-gray-600 mb-10">
                     Finding the right talent is not easy. We help you find the talent that suits your needs, follows your processes, and sticks with you long term (not the case with freelancers)
                   </p>
-                  <p className="text-sm text-purple-600 font-medium mb-6">
-                    <a href="#">Our delivery model</a> helps you cut costs and deliver within budget.
+                  <p className="text-sm font-medium mb-6">
+                    Our <a href="#" className="text-transparent bg-clip-text bg-gradient-to-r from-[#F76680] to-[#57007B]">delivery model</a> helps you cut costs and deliver within budget.
                   </p>
-                  <blockquote className="border-l-4 pl-4 text-sm italic text-pink-600 mb-4">
+                  <blockquote className="border-l-4 pl-4 border-violet-500 text-sm italic text-transparent bg-clip-text bg-gradient-to-r from-[#F76680] to-[#57007B] mb-6">
                     “{item.quote}”
                   </blockquote>
                   <div className="flex items-center gap-3">

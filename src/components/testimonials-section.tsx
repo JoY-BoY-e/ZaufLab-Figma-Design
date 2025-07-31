@@ -62,21 +62,21 @@ export function TestimonialsSection() {
   return (
     <section className="py-24 bg-white text-center relative overflow-hidden">
       <div className="max-w-3xl mx-auto px-4">
-        <div className="h-1 w-10 bg-pink-600 mb-7 m-auto" />
+        <div className="mx-auto h-[0.4rem] w-20 bg-gradient-to-r from-[#57007B] to-[#F76680] mb-6" />
 
         <div className="text-4xl  mb-4 inline-block pb-1">
           Why customers love
         </div>
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-20">
           working with us
         </h2>
-        <p className="text-gray-500 max-w-xl mx-auto mb-12">
+        <p className="text-gray-500 max-w-xl mx-auto mb-18">
           {testimonials[activeIndex].content}
         </p>
       </div>
 
       {/* Carousel Arrows */}
-      <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+      <div className="absolute left-12 top-1/2 transform -translate-y-1/2 z-10">
         <button
           onClick={handlePrev}
           className="w-10 h-10 rounded-full border border-purple-500 text-purple-600 hover:bg-purple-100 flex items-center justify-center transition"
@@ -84,7 +84,7 @@ export function TestimonialsSection() {
           <ChevronLeft size={20} />
         </button>
       </div>
-      <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10">
+      <div className="absolute right-12 top-1/2 transform -translate-y-1/2 z-10">
         <button
           onClick={handleNext}
           className="w-10 h-10 rounded-full border border-purple-500 text-purple-600 hover:bg-purple-100 flex items-center justify-center transition"

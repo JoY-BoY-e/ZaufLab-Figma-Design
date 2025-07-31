@@ -1,7 +1,11 @@
+
+
+
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const navigation = [
@@ -17,28 +21,30 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur border-b border-gray-200 shadow-sm font-sans">
-      <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12 py-1">
-        <div className="flex h-18 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-nav">
+      <div className="mx-auto px-6 sm:px-8 lg:px-12 py-1">
+        <div className="flex h-[59px] items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+         <div className="flex items-center space-x-3">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="h-9 w-9 rounded-full bg-gradient-to-r from-[#AC5DD9] to-[#FF77A5] flex items-center justify-center text-white font-semibold text-lg shadow-md">
-                P
-              </div>
-              <span className="text-lg font-semibold text-gray-800">
-                Digital Agency
-              </span>
+              <Image
+                src="/logos/Logo.png"
+                alt="Logo"
+                width={200}
+                height={60}
+                className="object-contain"
+              />
+            
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-10">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-[1rem] font-normal tracking-wide text-gray-600 hover:text-black transition-colors duration-200"
+                className="text-base font-medium text-gray-700 hover:text-black transition-colors duration-200"
               >
                 {item.name}
               </Link>
@@ -47,7 +53,7 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center">
-            <Button className="rounded-md bg-[linear-gradient(25deg,_#5f4478_0%,_#e04478_100%)] text-white text-sm font-semibold px-6 py-2 transition hover:opacity-90">
+            <Button className="rounded-[5px] bg-gradient-to-tr from-[#57007B] to-[#F76680] text-white text-sm font-semibold px-6 py-2 h-[42px] w-[124px] transition hover:opacity-90">
               Contact us
             </Button>
           </div>
@@ -93,8 +99,8 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
-              <Button className="mt-3 w-full bg-[linear-gradient(45deg,_#5f4478_0%,_#e04478_100%)] text-white rounded-md font-semibold hover:bg-[#d83e5d]">
-                Get Started
+              <Button className="mt-3 w-full bg-gradient-to-br from-[#57007B] to-[#F76680] text-white rounded-[5px] font-semibold h-[42px]">
+                Contact us
               </Button>
             </div>
           </div>

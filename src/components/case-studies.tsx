@@ -26,6 +26,7 @@ export function CaseStudySection() {
   return (
     <section id="casestudies" className="py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto h-[0.4rem] w-20 bg-gradient-to-r from-[#57007B] to-[#F76680] mb-6" />
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl  text-gray-500 mb-2">Our recent</h2>
@@ -33,34 +34,42 @@ export function CaseStudySection() {
         </div>
 
         {/* Case Study Cards */}
-        <div className="space-y-12">
-          {portfolioItems.map((item, idx) => (
-            <div
-              key={idx}
-              className={`${item.bgColor} rounded-2xl  flex flex-col md:flex-row items-center md:items-start gap-8`}
-            >
-              <div className="w-full md:w-1/2">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                    width={400}
-                    height={250}
-                    priority
-                  className="rounded-xl w-full h-auto object-cover"
-                />
-              </div>
-              <div className="w-full md:w-1/2 p-6 sm:p-8 lg:p-10">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {item.description}
-                </p>
-                <Link href="#" className="text-sm font-medium text-purple-600 hover:underline">
-                  Read more &rarr;
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+        <div className="space-y-8">
+  {portfolioItems.map((item, idx) => (
+    <div
+      key={idx}
+      className={`${item.bgColor} rounded-2xl overflow-hidden flex flex-col lg:flex-row`}
+    >
+      {/* Image - always covers left side */}
+      <div className="lg:w-1/2 w-full h-[300px] lg:h-auto">
+        <Image
+          src={item.image}
+          alt={item.title}
+          width={800}
+          height={600}
+          className="w-full h-full object-contain"
+          priority={idx === 0}
+        />
+      </div>
+      
+      {/* Content - right side */}
+      <div className="lg:w-1/2 w-full p-6 sm:p-8 lg:p-10 flex flex-col justify-start">
+        <h3 className="text-1xl md:text-2xl lg:text-3xl font-semibold text-gray-900 mb-12">
+          {item.title}
+        </h3>
+        <p className="text-base text-gray-500 leading-relaxed mb-6 lg:mb-20"> 
+          {item.description}
+        </p>
+        <Link 
+          href="#" 
+          className="justify-end text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#F76680] to-[#57007B] hover:underline inline-flex items-center"
+        >
+          Read more <span className="ml-1">&rarr;</span>
+        </Link>
+      </div>
+    </div>
+  ))}
+</div>
 
         {/* Footer CTA */}
         <div className="text-right mt-12">

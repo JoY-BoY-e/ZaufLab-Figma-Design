@@ -8,14 +8,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <div className="flex mb-4">
-              <Image
-                src="/logos/6537946.jpg"
-                alt="Logo"
-                width={120}
-                height={40}
-                className="h-6 w-auto"
-              />
-            <h3 className="font-semibold text-gray-800">Company</h3>
+            <Image
+              src='/logos/Logo.png'
+              alt='Logo'
+              width={120}
+              height={40}
+              className='h-14 w-auto'
+            />
             </div>
             <p className="text-gray-500 mb-4">
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -26,7 +25,7 @@ export function Footer() {
               alt="Google performance"
               width={100}
               height={30}
-              className="h-auto w-50"
+              className="h-20 w-auto mb-4"
             />
           </div>
 
@@ -64,7 +63,7 @@ export function Footer() {
               industry.
             </p>
             <p className="text-gray-700 font-medium mb-4">+908 89097 890</p>
-            <div className="flex space-x-3">
+            <div className="flex space-x-3 justify-end mt-10">
               <a
                 href="#"
                 className="w-9 h-9 rounded-full shadow-md bg-white flex items-center justify-center hover:shadow-lg transition"

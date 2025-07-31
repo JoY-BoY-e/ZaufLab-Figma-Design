@@ -4,15 +4,15 @@ import { ArrowRight } from "lucide-react";
 export function TrustSection() {
   return (
     <section className="bg-white py-20 px-4 sm:px-8 lg:px-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         {/* Left Text Section */}
-        <div>
-          <div className="h-1 w-10 bg-pink-600 mb-6" />
+        <div className="space-y-8 lg:w-[90%] ">
+          <div className=" h-[0.4rem] w-20 bg-gradient-to-r from-[#57007B] to-[#F76680] mb-6" />
           <h2 className="text-3xl sm:text-4xl font text-gray-900 mb-6 leading-relaxed">
             Leading companies trust us <br />{" "}
             <span className="font-extrabold">to develop software</span>
           </h2>
-          <p className="text-gray-600 text-base sm:text-lg mb-6 leading-loose">
+          <p className="text-gray-500 text-left text-base sm:text-lg mb-6 leading-loose ">
             We{" "}
             <span className="text-pink-800 font-medium">
               add development capacity
@@ -34,19 +34,12 @@ export function TrustSection() {
         {/* Right Image Section */}
         <div className="relative w-full max-w-xl mx-auto rounded-2xl overflow-hidden shadow-md">
           <Image
-            src="/teams.png"
+            src="/about-us.png"
             alt="Team working"
             width={800}
             height={500}
             className="object-cover w-full h-full"
           />
-          <button className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-white opacity-60 rounded-full p-3">
-              <div className="w-10 h-10 rounded-full bg-purple-700 flex items-center justify-center text-white text-xl">
-                ▶
-              </div>
-            </div>
-          </button>
         </div>
       </div>
     </section>

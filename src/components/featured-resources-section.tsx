@@ -63,10 +63,10 @@ export default function FeaturedResources() {
   return (
     <section className="py-20 px-4 sm:px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10">
-          <div className="w-12 h-1 bg-pink-500 mx-auto mb-4" />
-          <h2 className="text-xl text-gray-700">Featured</h2>
-          <h3 className="text-3xl font-bold text-gray-900">Resources</h3>
+        <div className="mx-auto h-[0.4rem] w-20 bg-gradient-to-r from-[#57007B] to-[#F76680] mb-6" />
+        <div className="text-center mb-20">
+          <h2 className="text-3xl text-gray-700 mb-3">Featured</h2>
+          <h3 className="text-3xl font-bold text-gray-900 ">Resources</h3>
         </div>
 
         
@@ -75,9 +75,9 @@ export default function FeaturedResources() {
           {resources.map((res, idx) => (
             <div
               key={idx}
-              className="keen-slider__slide bg-white p-4 rounded-lg border shadow-sm hover:shadow-neutral-600"
+              className="keen-slider__slide bg-white p-2 rounded-lg "
             >
-              <div className="rounded-lg overflow-hidden mb-3">
+              <div className="rounded-lg overflow-hidden mb-6">
                 <Image
                   src={res.image}
                   alt={`Resource ${idx}`}
@@ -86,14 +86,14 @@ export default function FeaturedResources() {
                   className="object-cover w-full h-40 rounded"
                 />
               </div>
-              <h4 className="text-sm font-medium text-gray-800 mb-2 leading-snug">
+              <h4 className="text-sm font-light text-gray-700 mb-6 leading-snug">
                 {res.title}
               </h4>
               <a
                 href="#"
-                className="text-sm text-purple-600 font-medium flex items-center gap-1 hover:underline"
+                className="text-sm text-transparent bg-clip-text bg-gradient-to-r from-[#F76680] to-[#57007B] font-medium flex items-center justify-end gap-1 hover:underline"
               >
-                Read More <ArrowRight size={14} />
+                Read More <ArrowRight className='text-black' size={14} />
               </a>
             </div>
           ))}

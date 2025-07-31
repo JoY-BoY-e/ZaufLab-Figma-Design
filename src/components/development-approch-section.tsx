@@ -50,10 +50,11 @@ export function DevelopmentApproachSection() {
   return (
     <section id="howitworks" className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto h-[0.4rem] w-20 bg-gradient-to-r from-[#57007B] to-[#F76680] mb-6" />
+
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="w-12 h-1 bg-purple-600 rounded-full mx-auto mb-4"></div>
-          <p className="text-2xl text-gray-600">Our design and</p>
+          <p className="text-4xl text-gray-800 mb-3">Our design and</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
             development approach
           </h2>
@@ -64,7 +65,7 @@ export function DevelopmentApproachSection() {
           {features.map((item, idx) => (
             <div
               key={idx}
-              className="border border-gray-200 rounded-xl p-6 flex items-start gap-4 hover:shadow-md transition"
+              className="border border-gray-200 rounded-xl p-6 py-15 flex items-start gap-4 hover:shadow-md transition"
             >
               {/* Icon */}
               <div className={`rounded-xl p-3 ${item.bg} shrink-0`}>

@@ -39,9 +39,9 @@ export default function DevelopmentProcess() {
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto relative">
       {/* Heading */}
-      <div className="text-center mb-12">
-        <div className="w-12 h-1 bg-pink-500 mx-auto mb-6" />
-        <h2 className="text-2xl text-gray-600">How development</h2>
+      <div className="text-center mb-20">
+        <div className="mx-auto h-[0.4rem] w-20 bg-gradient-to-r from-[#57007B] to-[#F76680] mb-6" />
+        <h2 className="text-3xl text-gray-600 mb-3">How development</h2>
         <h3 className="text-3xl font-bold text-gray-900">
           through <span className="text-black font-semibold">Alcaline</span> works
         </h3>
@@ -50,9 +50,9 @@ export default function DevelopmentProcess() {
       {/* Top 3 Cards */}
       <div className="relative grid md:grid-cols-3 gap-6 mb-16">
         {steps.slice(0, 3).map((step, idx) => (
-          <div key={idx} className="relative z-10 p-6 bg-white rounded-lg shadow-sm border text-left">
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-full w-1 h-6 bg-pink-500 hidden md:block" />
-            <h4 className="text-sm font-bold text-pink-600 mb-2">
+          <div key={idx} className="relative right-3 z-10 p-6 bg-white rounded-lg shadow-sm border text-left mb-8">
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-full w-1 h-12 bg-pink-500 hidden md:block" />
+            <h4 className="text-base font-bold text-pink-700 mb-4">
               {step.number}{' '}
               <span className="text-gray-900">{step.title}</span>
             </h4>
@@ -74,8 +74,8 @@ export default function DevelopmentProcess() {
               <div className="w-full h-full border-r-2 border-b-2 border-pink-500 rounded-br-lg" />
             </div>
             {/* Trophy icon positioned at the right end of the line */}
-            <div className="absolute top-1 right-[-20px] flex items-center justify-center">
-              <Trophy className="text-yellow-500 w-6 h-6" />
+            <div className="absolute top-[-15px] right-[-20px] flex items-center justify-center m-3 mr-0">
+              <Trophy className="text-yellow-500 w-8 h-8" />
             </div>
           </div>
         </div>
@@ -84,9 +84,9 @@ export default function DevelopmentProcess() {
       {/* Bottom 3 Cards */}
       <div className="grid md:grid-cols-3 gap-6">
         {steps.slice(3, 6).map((step, idx) => (
-          <div key={idx} className="relative z-10 p-6 bg-white rounded-lg shadow-sm border text-left">
-            <div className="absolute left-1/2 transform translate-x-8 bottom-full w-1 h-6 bg-pink-500 hidden md:block" />
-            <h4 className="text-sm font-bold text-pink-600 mb-2">
+          <div key={idx} className="relative left-3 z-10 p-6 bg-white rounded-lg shadow-sm border text-left">
+            <div className="absolute left-1/2 transform translate-x-10 bottom-full w-1 h-10 bg-pink-500 hidden md:block" />
+            <h4 className="text-base font-bold text-pink-700 mb-4">
               {step.number}{' '}
               <span className="text-gray-900">{step.title}</span>
             </h4>

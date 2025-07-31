@@ -1,10 +1,23 @@
-'use client';
-import { useState } from 'react';
-import Image from 'next/image';
+"use client";
+import { useState } from "react";
+import Image from "next/image";
 
-type TabName = "Backend" | "Frontend" | "Databases" | "CMS" | "CloudTesting" | "DevOps";
+type TabName =
+  | "Backend"
+  | "Frontend"
+  | "Databases"
+  | "CMS"
+  | "CloudTesting"
+  | "DevOps";
 
-const tabs: TabName[] = ["Backend", "Frontend", "Databases", "CMS", "CloudTesting", "DevOps"];
+const tabs: TabName[] = [
+  "Backend",
+  "Frontend",
+  "Databases",
+  "CMS",
+  "CloudTesting",
+  "DevOps",
+];
 
 const techStack: Record<TabName, { name: string; src: string }[]> = {
   Backend: [
@@ -63,19 +76,20 @@ export default function TechStackTabs() {
   const [activeTab, setActiveTab] = useState<TabName>("Backend");
 
   return (
-    <div className="flex-1 w-full px-4 py-10 md:py-20 text-center justify-center items-center">
-      <div className="m-auto h-1 w-10 bg-pink-600 mb-6" />
-      <h2 className="text-3xl uppercase tracking-widest ">Our</h2>
-      <h1 className="text-3xl md:text-4xl font-bold mt-1 mb-6">Tech Stack</h1>
+    <div className="flex-1 w-full px-4 py-15 md:py-20 text-center justify-center items-center mb-12">
+      <div className="mx-auto h-[0.4rem] w-20 bg-gradient-to-r from-[#57007B] to-[#F76680] mb-6" />
 
-      <div className="flex justify-center space-x-6 md:space-x-10 mb-10 flex-wrap">
+      <h2 className="text-3xl uppercase tracking-widest mb-2">Our</h2>
+      <h1 className="text-3xl md:text-4xl font-bold mt-1 mb-12">Tech Stack</h1>
+
+      <div className="flex justify-center space-x-6 md:space-x-10 mb-18 flex-wrap">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`text-sm md:text-base font-medium border-b-2 pb-1 transition-all duration-300 ${
               activeTab === tab
-                ? "text-pink-600 border-pink-600"
+                ? "text-transparent bg-clip-text bg-gradient-to-r from-[#57007B] to-[#F76680] border-pink-600"
                 : "text-gray-600 border-transparent hover:text-black"
             }`}
           >
@@ -84,11 +98,24 @@ export default function TechStackTabs() {
         ))}
       </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6 items-center justify-center max-w-4xl mx-auto">
+      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 max-w-4xl mx-auto">
         {techStack[activeTab]?.map((tech) => (
-          <div key={tech.name} className="flex flex-col items-center space-y-2">
-            <Image src={tech.src} alt={tech.name} width={100} height={100} />
-            <span className="text-xs md:text-sm text-gray-700">{tech.name}</span>
+          <div
+            key={tech.name}
+            className="flex flex-col items-center w-30 md:w-34" // Fixed width for better alignment
+          >
+            <div className="w-full flex items-center justify-center">
+              <Image
+                src={tech.src}
+                alt={tech.name}
+                width={64} // Optimized size
+                height={64}
+                className="object-contain w-full h-full" // Ensures proper scaling
+              />
+            </div>
+            <span className="text-xs md:text-sm text-gray-700 text-center mt-2">
+              {tech.name}
+            </span>
           </div>
         ))}
       </div>
