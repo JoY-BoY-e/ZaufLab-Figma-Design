@@ -30,23 +30,42 @@ const services = [
       "Complete online store solutions with secure payment and inventory management.",
     icon: "🛒",
   },
+  {
+    title: "E-commerce Solutions",
+    description:
+      "Complete online store solutions with secure payment and inventory management.",
+    icon: "🛒",
+  },
 ];
 
 export function ServicesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const [sliderRef] = useKeenSlider<HTMLDivElement>({
-  loop: true,
-  slides: { perView: 1.2, spacing: 4 },
+  const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
+    
+    mode: "snap",
+    loop: true,
+
+    slideChanged(slider) {
+    setCurrentSlide(slider.track.details.rel);
+  },
+  slides: {
+    perView: 1.2,
+    spacing: 12,
+  },
   breakpoints: {
     "(min-width: 768px)": {
-      slides: { perView: 2.5, spacing: 8 },
+      slides: { perView: 1.5, spacing: 12 },
     },
     "(min-width: 1024px)": {
-      slides: { perView: 3.5, spacing: 12 },
+      slides: { perView: 2.5, spacing: 12 },
+    },
+    "(min-width: 1280px)": {
+      slides: { perView: 3, spacing: 16 },
     },
   },
-});
+  });
 
   return (
     <section id="services" className="py-24 sm:py-32 bg-brand/5">
@@ -65,7 +84,7 @@ export function ServicesSection() {
             return (
               <div
                 key={index}
-                className="keen-slider__slide flex items-stretch justify-center overflow-visible py-5"
+                className="keen-slider__slide flex items-center justify-center overflow-visible py-5"
               >
                 <Card
                   onMouseEnter={() => setHoveredIndex(index)}
@@ -109,11 +128,21 @@ export function ServicesSection() {
           })}
         </div>
 
-        {/* Pagination Dots (Optional/Placeholder) */}
+        
+        {/* Pagination Dots */}
         <div className="mt-8 flex justify-center gap-2">
-          <span className="w-2 h-2 bg-accent rounded-full"></span>
-          <span className="w-2 h-2 bg-accent/20 rounded-full"></span>
-          <span className="w-2 h-2 bg-accent/20 rounded-full"></span>
+          {services.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => slider.current?.moveToIdx(idx)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                idx === currentSlide
+                  ? "bg-accent"
+                  : "bg-accent/20 hover:bg-accent/40"
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            ></button>
+          ))}
         </div>
       </div>
     </section>
