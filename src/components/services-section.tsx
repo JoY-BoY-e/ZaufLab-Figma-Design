@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { Card, CardContent } from "@/components/ui/card";
+import ServicesQuoteForm from "./services-quote-form";
 
 const services = [
   {
@@ -68,10 +69,10 @@ export function ServicesSection() {
   });
 
   return (
-    <section id="services" className="py-24 sm:py-32 bg-brand/5">
+    <section id="services" className="py-12 sm:py-16 bg-brand/5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-28">
           <h2 className="text-4xl font-bold text-foreground">Services we offer</h2>
         </div>
 
@@ -143,6 +144,19 @@ export function ServicesSection() {
               aria-label={`Go to slide ${idx + 1}`}
             ></button>
           ))}
+        </div>
+      </div>
+
+      {/* Quote Form */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold mb-4">Get a Quote</h2>
+            <p className="text-sm text-muted mb-6">
+              Fill out the form below to get a personalized quote for your project.
+            </p>
+            <ServicesQuoteForm />
+          </div>
         </div>
       </div>
     </section>

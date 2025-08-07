@@ -17,8 +17,20 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "avatars.githubusercontent.com",
       },
+      {
+        protocol: 'https',
+        hostname: 'logohub.dev',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.simpleicons.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+      },
     ],
-    domains: ['localhost','images.unsplash.com', 'randomuser.me'],
+    domains: ['localhost','images.unsplash.com', 'randomuser.me', 'avatars.githubusercontent.com', 'logohub.dev', 'cdn.simpleicons.org', 'upload.wikimedia.org'],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

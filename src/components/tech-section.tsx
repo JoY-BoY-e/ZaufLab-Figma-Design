@@ -20,56 +20,57 @@ const tabs: TabName[] = [
 ];
 
 const techStack: Record<TabName, { name: string; src: string }[]> = {
-  Backend: [
-    { name: "Node.js", src: "/logos/6537946.jpg" },
-    { name: "PHP", src: "/logos/6537946.jpg" },
-    { name: "MySQL", src: "/logos/6537946.jpg" },
-    { name: "Java", src: "/logos/6537946.jpg" },
-    { name: ".NET Core", src: "/logos/6537946.jpg" },
-    { name: "Python", src: "/logos/6537946.jpg" },
-    { name: "Rails", src: "/logos/6537946.jpg" },
-    { name: "Golang", src: "/logos/6537946.jpg" },
-    { name: "MongoDB", src: "/logos/6537946.jpg" },
-  ],
-  Frontend: [
-    { name: "React", src: "/logos/6537946.jpg" },
-    { name: "Vue.js", src: "/logos/6537946.jpg" },
-    { name: "Angular", src: "/logos/6537946.jpg" },
-    { name: "Svelte", src: "/logos/6537946.jpg" },
-    { name: "Tailwind CSS", src: "/logos/6537946.jpg" },
-    { name: "Bootstrap", src: "/logos/6537946.jpg" },
-    { name: "CSS3", src: "/logos/6537946.jpg" },
-    { name: "HTML5", src: "/logos/6537946.jpg" },
-  ],
-  Databases: [
-    { name: "PostgreSQL", src: "/logos/6537946.jpg" },
-    { name: "SQLite", src: "/logos/6537946.jpg" },
-    { name: "Redis", src: "/logos/6537946.jpg" },
-    { name: "Firebase", src: "/logos/6537946.jpg" },
-    { name: "Cassandra", src: "/logos/6537946.jpg" },
-    { name: "Elasticsearch", src: "/logos/6537946.jpg" },
-  ],
-  CMS: [
-    { name: "WordPress", src: "/logos/6537946.jpg" },
-    { name: "Drupal", src: "/logos/6537946.jpg" },
-    { name: "Joomla", src: "/logos/6537946.jpg" },
-    { name: "Shopify", src: "/logos/6537946.jpg" },
-    { name: "Magento", src: "/logos/6537946.jpg" },
-  ],
-  CloudTesting: [
-    { name: "AWS", src: "/logos/6537946.jpg" },
-    { name: "Azure", src: "/logos/6537946.jpg" },
-    { name: "Google Cloud", src: "/logos/6537946.jpg" },
-    { name: "Docker", src: "/logos/6537946.jpg" },
-    { name: "Kubernetes", src: "/logos/6537946.jpg" },
-  ],
-  DevOps: [
-    { name: "Git", src: "/logos/6537946.jpg" },
-    { name: "Jenkins", src: "/logos/6537946.jpg" },
-    { name: "Terraform", src: "/logos/6537946.jpg" },
-    { name: "Ansible", src: "/logos/6537946.jpg" },
-    { name: "CI/CD", src: "/logos/6537946.jpg" },
-  ],
+ Backend: [
+  { name: "Node.js", src: "https://cdn.simpleicons.org/nodedotjs" },
+  { name: "PHP", src: "https://cdn.simpleicons.org/php" },
+  { name: "MySQL", src: "https://cdn.simpleicons.org/mysql" },
+  { name: "Java", src: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" },
+  { name: ".NET Core", src: "https://cdn.simpleicons.org/dotnet" },
+  { name: "Python", src: "https://cdn.simpleicons.org/python" },
+  { name: "Rails", src: "https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg" },
+  { name: "Golang", src: "https://cdn.simpleicons.org/go" },
+],
+Frontend: [
+  { name: "React", src: "https://cdn.simpleicons.org/react" },
+  { name: "Vue.js", src: "https://cdn.simpleicons.org/vuedotjs" },
+  { name: "Angular", src: "https://cdn.simpleicons.org/angular" },
+  { name: "Svelte", src: "https://cdn.simpleicons.org/svelte" },
+  { name: "Tailwind CSS", src: "https://cdn.simpleicons.org/tailwindcss" },
+  { name: "Bootstrap", src: "https://cdn.simpleicons.org/bootstrap" },
+  { name: "CSS3", src: "https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" },
+  { name: "HTML5", src: "https://cdn.simpleicons.org/html5" },
+],
+Databases: [
+  { name: "PostgreSQL", src: "https://cdn.simpleicons.org/postgresql" },
+  { name: "SQLite", src: "https://cdn.simpleicons.org/sqlite" },
+  { name: "Redis", src: "https://cdn.simpleicons.org/redis" },
+  { name: "Firebase", src: "https://cdn.simpleicons.org/firebase" },
+  { name: "Cassandra", src: "https://cdn.simpleicons.org/apachecassandra" },
+  { name: "Elasticsearch", src: "https://cdn.simpleicons.org/elasticsearch" },
+  { name: "MongoDB", src: "https://cdn.simpleicons.org/mongodb" },
+
+],
+CMS: [
+  { name: "WordPress", src: "https://cdn.simpleicons.org/wordpress" },
+  { name: "Drupal", src: "https://cdn.simpleicons.org/drupal" },
+  { name: "Joomla", src: "https://cdn.simpleicons.org/joomla" },
+  { name: "Shopify", src: "https://cdn.simpleicons.org/shopify" },
+],
+CloudTesting: [
+  { name: "AWS", src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+  { name: "Azure", src: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" },
+  { name: "Google Cloud", src: "https://cdn.simpleicons.org/googlecloud" },
+  { name: "Docker", src: "https://cdn.simpleicons.org/docker" },
+  { name: "Kubernetes", src: "https://cdn.simpleicons.org/kubernetes" },
+],
+DevOps: [
+  { name: "Git", src: "https://cdn.simpleicons.org/git" },
+  { name: "Jenkins", src: "https://cdn.simpleicons.org/jenkins" },
+  { name: "Terraform", src: "https://cdn.simpleicons.org/terraform" },
+  { name: "Ansible", src: "https://cdn.simpleicons.org/ansible" },
+  { name: "CI/CD", src: "https://cdn.simpleicons.org/gitlab" }, // GitLab used as CI/CD representation
+],
+
 };
 
 export default function TechStackTabs() {
@@ -103,7 +104,7 @@ export default function TechStackTabs() {
         {techStack[activeTab]?.map((tech) => (
           <div
             key={tech.name}
-            className="flex flex-col items-center w-24 md:w-32 lg:w-40 xl:w-48 p-4 bg-white "
+            className="flex flex-col items-center w-24 md:w-28 lg:w-32 xl:w-36 p-4 bg-white "
           >
             <div className="w-full flex items-center justify-center">
               <Image
@@ -114,9 +115,9 @@ export default function TechStackTabs() {
                 className="object-contain w-full h-full"
               />
             </div>
-            <span className="text-xs md:text-sm text-muted text-center mt-2">
+            {/* <span className="text-xs md:text-sm text-muted text-center mt-2">
               {tech.name}
-            </span>
+            </span> */}
           </div>
         ))}
       </div>

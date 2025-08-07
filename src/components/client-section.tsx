@@ -7,13 +7,15 @@ import { useRef } from "react";
 import Image from "next/image";
 
 const logos = [
-  "/logos/6537946.jpg",
-  "/logos/6537946.jpg",
-  "/logos/6537946.jpg",
-  "/logos/6537946.jpg",
-  "/logos/6537946.jpg",
-  "/logos/6537946.jpg",
+  { name: "DigitalOcean", src: "https://cdn.simpleicons.org/digitalocean" },
+  { name: "Netlify", src: "https://cdn.simpleicons.org/netlify" },
+  { name: "Vercel", src: "https://cdn.simpleicons.org/vercel" },
+  { name: "Supabase", src: "https://cdn.simpleicons.org/supabase" },
+  { name: "Hasura", src: "https://cdn.simpleicons.org/hasura" },
+  { name: "Plausible Analytics", src: "https://cdn.simpleicons.org/plausibleanalytics" },
 ];
+
+
 
 export function ClientsSection() {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -79,20 +81,25 @@ export function ClientsSection() {
         ref={sliderRef}
         className="keen-slider  sm:h-50 md:h-56 lg:h-60  bg-light-lavender rounded-lg p-6"
       >
-        {logos.map((logo, idx) => (
-          <div
-            key={idx}
-            className="keen-slider__slide flex justify-center items-center p-4"
-          >
-            <Image
-              src={logo}
-              width={200}
-              height={100}
-              alt={`Client logo ${idx}`}
-              className="object-contain h-20 sm:h-24"
-            />
-          </div>
-        ))}
+       {logos.map((logo, idx) => (
+  <div
+    key={idx}
+    className="keen-slider__slide flex flex-col justify-center items-center p-4"
+  >
+    <Image
+      src={logo.src}
+      width={200}
+      height={100}
+      alt={logo.name}
+      title={logo.name}
+      draggable={false}
+      loading="lazy"
+      className="object-contain h-20 sm:h-24"
+    />
+   
+  </div>
+))}
+
       </div>
     </section>
   );

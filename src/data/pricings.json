@@ -1,0 +1,44 @@
+{
+  "smart-contract": {
+    "label": "Smart Contract Development (Solidity)",
+    "price": {
+      "min": 40,
+      "max": 80
+    }
+  },
+  "frontend-backend": {
+    "label": "Frontend & Backend Development",
+    "price": {
+      "min": 35,
+      "max": 75
+    }
+  },
+  "web3-integration": {
+    "label": "Web3 Integration",
+    "price": {
+      "min": 45,
+      "max": 90
+    }
+  },
+  "ux-ui-design": {
+    "label": "UX/UI Design",
+    "price": {
+      "min": 30,
+      "max": 60
+    }
+  },
+  "branding-brand-identity": {
+    "label": "Branding & Brand Identity",
+    "price": {
+      "min": 25,
+      "max": 55
+    }
+  },
+  "graphql-subgraph-development": {
+    "label": "GraphQL Subgraph Development",
+    "price": {
+      "min": 40,
+      "max": 85
+    }
+  }
+}
