@@ -42,16 +42,15 @@ export function CaseStudySection() {
               className={`${item.bgColor} rounded-2xl overflow-hidden flex flex-col lg:flex-row`}
             >
               {/* Image - left side */}
-              <div className="lg:w-1/2 w-full h-[300px] lg:h-auto">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={800}
-                  height={600}
-                  className="w-full h-full object-contain"
-                  priority={idx === 0}
-                />
-              </div>
+              <div className="relative w-full aspect-video lg:w-1/2">
+  <Image
+    src={item.image}
+    alt={item.title}
+    fill
+    className="object-cover w-full h-full"
+    priority={idx === 0}
+  />
+</div>
 
               {/* Content - right side */}
               <div className="lg:w-1/2 w-full p-6 sm:p-8 lg:p-10 flex flex-col justify-start">
