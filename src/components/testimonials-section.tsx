@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useKeenSlider } from "keen-slider/react";
 
 const testimonials = [
   {
@@ -10,7 +11,7 @@ const testimonials = [
     role: "CEO, TechStart Inc.",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     content:
-      "Without any doubt I recommend Alcaline Solutions as one of the best web design and digital marketing agencies. One of the best agencies I’ve come across so far. Wouldn’t be hesitated to introduce their work to someone else.",
+      "Without any doubt I recommend Alcaline Solutions as one of the best web design and digital marketing agencies. One of the best agencies I've come across so far. Wouldn't be hesitated to introduce their work to someone else.",
     rating: 5,
   },
   {
@@ -18,7 +19,7 @@ const testimonials = [
     role: "Product Manager, InnovateNow",
     avatar: "https://randomuser.me/api/portraits/men/65.jpg",
     content:
-      "They’re incredibly professional and delivered a strong product.",
+      "They're incredibly professional and delivered a strong product.",
     rating: 5,
   },
   {
@@ -48,24 +49,44 @@ const testimonials = [
 ];
 
 export function TestimonialsSection() {
-  const [activeIndex, setActiveIndex] = useState(2); // Center one
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+    loop: true,
+    mode: "snap",
+    initial: 2, // Start with middle slide active
+    slides: {
+      perView: 5,
+      spacing: 10,
+      origin: "center", // Center the active slide
+    },
+    breakpoints: {
+      "(max-width: 768px)": {
+        slides: { 
+          perView: 3, 
+          spacing: 4,
+          origin: "center", // Center the active slide on mobile too
+        },
+      },
+    },
+    slideChanged(slider) {
+      setActiveIndex(slider.track.details.rel);
+    },
+  });
+
+  const [activeIndex, setActiveIndex] = useState(2);
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    instanceRef.current?.prev();
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    instanceRef.current?.next();
   };
 
   return (
     <section className="py-24 bg-white text-center relative overflow-hidden">
       <div className="max-w-3xl mx-auto px-4">
         <div className="mx-auto h-1.5 w-20 bg-brand-gradient mb-8 rounded-full" />
-
-        <div className="text-4xl mb-4 inline-block pb-1">
-          Why customers love
-        </div>
+        <div className="text-4xl mb-4 inline-block pb-1">Why customers love</div>
         <h2 className="text-4xl sm:text-3xl font-bold text-foreground mb-20">
           working with us
         </h2>
@@ -74,8 +95,8 @@ export function TestimonialsSection() {
         </p>
       </div>
 
-      {/* Carousel Arrows */}
-      <div className="absolute left-12 top-1/2 transform -translate-y-1/2 z-10">
+      {/* Arrows */}
+      <div className="absolute left-6 top-[calc(50%-8rem)] md:top-1/2 transform md:-translate-y-1/2 z-10">
         <button
           onClick={handlePrev}
           className="w-10 h-10 rounded-full border border-brand text-brand hover:bg-brand-light flex items-center justify-center transition"
@@ -83,7 +104,7 @@ export function TestimonialsSection() {
           <ChevronLeft size={20} />
         </button>
       </div>
-      <div className="absolute right-12 top-1/2 transform -translate-y-1/2 z-10">
+      <div className="absolute right-6 top-[calc(50%-8rem)] md:top-1/2 transform md:-translate-y-1/2 z-10">
         <button
           onClick={handleNext}
           className="w-10 h-10 rounded-full border border-brand text-brand hover:bg-brand-light flex items-center justify-center transition"
@@ -92,24 +113,29 @@ export function TestimonialsSection() {
         </button>
       </div>
 
-      {/* Avatar Carousel */}
-      <div className="flex justify-center gap-6 mt-8 px-4 overflow-x-auto scrollbar-hide">
+      {/* Slider */}
+      <div
+        ref={sliderRef}
+        className="keen-slider mt-8 px-4 max-w-6xl mx-auto"
+      >
         {testimonials.map((testimonial, index) => {
           const isActive = index === activeIndex;
           return (
             <div
               key={index}
-              className={`flex flex-col items-center transition-all duration-300 ${
-                isActive ? "opacity-100 scale-100" : "opacity-40 scale-90"
-              }`}
-              onClick={() => setActiveIndex(index)}
+              className="keen-slider__slide flex flex-col items-center cursor-pointer "
+              onClick={() => instanceRef.current?.moveToIdx(index)}
+              style={{
+                opacity: isActive ? 1 : 0.5,
+                transform: isActive ? "scale(1)" : "scale(0.9)",
+              }}
             >
               <Image
                 src={testimonial.avatar}
                 alt={testimonial.name}
                 width={100}
                 height={100}
-                className={`rounded-full border-4 ${
+                className={`rounded-full border-4 transition-all duration-300 ${
                   isActive ? "border-brand-accent" : "border-transparent"
                 }`}
               />
@@ -126,14 +152,14 @@ export function TestimonialsSection() {
                 ))}
               </div>
               <p
-                className={`text-base font-bold ${
+                className={`text-base font-bold transition-colors duration-300 ${
                   isActive ? "text-brand-dark" : "text-muted"
                 }`}
               >
                 {testimonial.name}
               </p>
               <p
-                className={`text-sm ${
+                className={`text-sm transition-colors duration-300 ${
                   isActive ? "text-foreground/70" : "text-muted/60"
                 }`}
               >
