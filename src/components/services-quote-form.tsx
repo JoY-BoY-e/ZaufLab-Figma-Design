@@ -181,7 +181,7 @@ const ServicesQuoteForm: React.FC = () => {
 
   <div className="flex justify-end">
     <Button
-      className="w-full sm:w-auto bg-[#FF77A5] text-white hover:bg-[#ff6699]"
+      className="w-full sm:w-[200px] md:w-[300px] text-black border border-[#FF77A5] bg-[#FF77A5] hover:text-white hover:bg-[#ff6699]"
       type="submit"
       disabled={
         selectedServices.length === 0 || days === 0 || email === ""
