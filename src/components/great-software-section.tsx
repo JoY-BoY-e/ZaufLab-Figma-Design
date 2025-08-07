@@ -4,19 +4,19 @@ import Image from "next/image";
 
 const items = [
   {
-    image: "/teams.png",
+    image: "/software-image1.png",
     quote: "Simform is quick to identify larger problem with the Software so we decided to expand our scope to build new modules",
     name: "Jeewa markram",
     role: "CEO",
   },
   {
-    image: "/teams.png",
+    image: "/software-image2.png",
     quote: "Simform is quick to identify larger problem with the Software so we decided to expand our scope to build new modules",
     name: "Jeewa markram",
     role: "CEO",
   },
   {
-    image: "/teams.png",
+    image: "/software-image3.png",
     quote: "Simform is quick to identify larger problem with the Software so we decided to expand our scope to build new modules",
     name: "Jeewa markram",
     role: "CEO",

@@ -19,11 +19,11 @@ export function Footer() {
             </div>
             <p className="mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             <Image
-              src="/logos/6537946.jpg"
+              src="/logos/googleLogo.png"
               alt="Google performance"
               width={100}
               height={30}
-              className="h-20 w-auto mb-4"
+              className="h-12 w-auto mb-4"
             />
           </div>
 

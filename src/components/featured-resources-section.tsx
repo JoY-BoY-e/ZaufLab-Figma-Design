@@ -8,43 +8,23 @@ import Image from "next/image";
 const resources = [
   {
     title: "How to Build a Scalable Application up to 1 Million Users on AWS",
-    image: "/teams.png",
+    image: "/feature-image1.png",
   },
   {
     title: "How to Build a Scalable Application up to 1 Million Users on AWS",
-    image: "/teams.png",
+    image: "/feature-image2.png",
   },
   {
     title: "How to Build a Scalable Application up to 1 Million Users on AWS",
-    image: "/teams.png",
+    image: "/feature-image3.png",
   },
   {
     title: "How to Build a Scalable Application up to 1 Million Users on AWS",
-    image: "/teams.png",
+    image: "/feature-image4.png",
   },
   {
     title: "How to Build a Scalable Application up to 1 Million Users on AWS",
-    image: "/teams.png",
-  },
-  {
-    title: "How to Build a Scalable Application up to 1 Million Users on AWS",
-    image: "/teams.png",
-  },
-  {
-    title: "How to Build a Scalable Application up to 1 Million Users on AWS",
-    image: "/teams.png",
-  },
-  {
-    title: "How to Build a Scalable Application up to 1 Million Users on AWS",
-    image: "/teams.png",
-  },
-  {
-    title: "How to Build a Scalable Application up to 1 Million Users on AWS",
-    image: "/teams.png",
-  },
-  {
-    title: "How to Build a Scalable Application up to 1 Million Users on AWS",
-    image: "/teams.png",
+    image: "/feature-image5.png",
   },
   {
     title: "How to Build a Scalable Application up to 1 Million Users on AWS",
