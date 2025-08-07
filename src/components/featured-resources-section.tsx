@@ -41,15 +41,28 @@ export default function FeaturedResources() {
       spacing: 20, // optional: reduce spacing a little
     },
     breakpoints: {
+      "(max-width: 1840px)": {
+        slides: {
+          perView: 4, // slightly more than 3
+          spacing: 20,
+        },
+      },
+
+      "(max-width: 1280px)": {
+        slides: {
+          perView: 3.5, // slightly more than 4
+          spacing: 20,
+        },
+      },
       "(max-width: 1024px)": {
         slides: {
-          perView: 3.2,
+          perView: 2.2,
           spacing: 16,
         },
       },
       "(max-width: 640px)": {
         slides: {
-          perView: 1.6,
+          perView: 1.2,
           spacing: 12,
         },
       },

@@ -9,7 +9,7 @@ export default function DaysSlider({
 }) {
   return (
     <SliderPrimitive.Root
-      className="relative flex w-full touch-none select-none items-center"
+      className="relative flex touch-none select-none items-center"
       min={1}
       max={60}
       step={1}

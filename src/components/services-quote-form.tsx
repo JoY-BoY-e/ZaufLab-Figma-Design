@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import {Button} from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import pricings from "@/data/pricings.json";
 import AmountRangeSelector from "@/components/amount-range-selector";
 import { CheckboxBox } from "@/components/check-box";
@@ -90,108 +90,111 @@ const ServicesQuoteForm: React.FC = () => {
   };
 
   return (
-   <form
-  className="flex-[2] space-y-6 rounded-2xl bg-white p-6 shadow-md md:p-10"
-  onSubmit={handleSubmit}
->
-  <div className="flex items-center justify-center gap-2 text-sm text-gray-700">
-    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-300 bg-white text-black">
-      1
-    </span>
-    <span>Personal Info</span>
-    <span>&gt;</span>
-    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FF77A5] text-white">
-      2
-    </span>
-    <span className="font-semibold text-[#FF77A5]">Our services</span>
-  </div>
-
-  <h2 className="text-xl font-semibold leading-[0.1] text-gray-900">
-    Services
-  </h2>
-
-  <div className="rounded-md bg-[#F9F9F9] px-1 py-6">
-    <label className="block px-3 text-sm text-gray-700">
-      Why are you contacting us?
-    </label>
-    <div className="flex flex-wrap items-center gap-2 py-2">
-      {SERVICES.map(({ label, key }) => (
-        <label
-          key={key}
-          className="flex cursor-pointer items-center gap-1 rounded-md px-3 py-2"
-        >
-          <CheckboxBox
-            checked={selectedServices.includes(key)}
-            onChange={() => handleServiceChange(key)}
-          />
-          <span className="mx-2 sm:w-[212px] font-satoshi text-[12px] font-normal text-gray-800 leading-[150%] tracking-normal">
-            {label}
-          </span>
-        </label>
-      ))}
-    </div>
-  </div>
-
-  <div className="space-y-2 rounded-md bg-[#F9F9F9] px-8 py-6">
-    <label className="block text-sm text-gray-700">
-      Tell us about your project
-    </label>
-    <textarea
-      className="w-full resize-none rounded-md border border-gray-300 bg-white p-3 text-sm text-gray-900 focus:border-[#FF77A5] focus:outline-none"
-      rows={4}
-      placeholder="Type here..."
-      value={description}
-      onChange={(e) => setDescription(e.target.value)}
-    />
-  </div>
-
-  <div className="space-y-2 rounded-md bg-[#F9F9F9] px-8 py-6">
-    <label className="block text-sm text-gray-700">Your email</label>
-    <input
-      required
-      type="email"
-      className="w-full resize-none rounded-md border border-gray-300 bg-white p-3 text-sm text-gray-900 focus:border-[#FF77A5] focus:outline-none"
-      placeholder="Type here..."
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-    />
-  </div>
-
-  <div className="space-y-2">
-    <label className="block text-sm text-gray-700">
-      Slide to indicate your Days range
-    </label>
-    <DaysSlider days={days} setDays={setDays} />
-    <div className="text-gray-500 text-xs">{days} days</div>
-  </div>
-
-  <div className="space-y-1">
-    <label className="text-gray-700 block text-sm font-medium">
-      Budget Range
-    </label>
-    <div className="relative">
-      <AmountRangeSelector
-        value={[min, max]}
-        min={min - 400}
-        max={max + 400}
-        step={100}
-      />
-    </div>
-  </div>
-
-  <div className="flex justify-end">
-    <Button
-      className="w-full sm:w-[200px] md:w-[300px] text-black border border-[#FF77A5] bg-[#FF77A5] hover:text-white hover:bg-[#ff6699]"
-      type="submit"
-      disabled={
-        selectedServices.length === 0 || days === 0 || email === ""
-      }
+    <form
+      className="flex-[2] space-y-8 rounded-2xl bg-white p-6 shadow-md md:p-10"
+      onSubmit={handleSubmit}
     >
-      Submit
-    </Button>
-  </div>
-</form>
+      {/* Step indicator */}
+      <div className="flex items-center justify-center gap-2 text-sm text-gray-700">
+        <span className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-300 bg-white text-black">
+          1
+        </span>
+        <span>Personal Info</span>
+        <span>&gt;</span>
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FF77A5] text-white">
+          2
+        </span>
+        <span className="font-semibold text-[#FF77A5]">Our services</span>
+      </div>
 
+      {/* Title */}
+      <h2 className="text-xl font-semibold text-gray-900">Services</h2>
+
+      {/* Services */}
+      <div className="rounded-md bg-[#F9F9F9] px-4 py-6 space-y-3">
+        <label className="block text-sm text-gray-700">
+          Why are you contacting us?
+        </label>
+        <div className="flex flex-wrap items-start gap-3 pt-1">
+          {SERVICES.map(({ label, key }) => (
+            <label
+              key={key}
+              className="flex cursor-pointer items-start gap-2 rounded-md px-2 py-1"
+            >
+              <CheckboxBox
+                checked={selectedServices.includes(key)}
+                onChange={() => handleServiceChange(key)}
+              />
+              <span className="sm:w-[212px] text-sm font-normal text-gray-800 leading-snug">
+                {label}
+              </span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Description */}
+      <div className="space-y-2 rounded-md bg-[#F9F9F9] px-4 py-6">
+        <label className="block text-sm text-gray-700">
+          Tell us about your project
+        </label>
+        <textarea
+          className="w-full resize-none rounded-md border border-gray-300 bg-white p-3 text-sm text-gray-900 focus:border-[#FF77A5] focus:outline-none"
+          rows={4}
+          placeholder="Type here..."
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </div>
+
+      {/* Email */}
+      <div className="space-y-2 rounded-md bg-[#F9F9F9] px-4 py-6">
+        <label className="block text-sm text-gray-700">Your email</label>
+        <input
+          required
+          type="email"
+          className="w-full rounded-md border border-gray-300 bg-white p-3 text-sm text-gray-900 focus:border-[#FF77A5] focus:outline-none"
+          placeholder="Type here..."
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+
+      {/* Days Slider */}
+      <div className="mx-auto w-[calc(100%-2rem)] space-y-2">
+        <label className="block text-sm text-gray-700">
+          Slide to indicate your Days range
+        </label>
+        <DaysSlider days={days} setDays={setDays} />
+        <div className="text-xs text-gray-500">
+          {days} day{days > 1 ? "s" : ""}
+        </div>
+      </div>
+
+      {/* Budget Range */}
+      <div className="mx-auto w-[calc(100%-2rem)] space-y-2">
+        <label className="block text-sm text-gray-700 font-medium">
+          Budget Range
+        </label>
+        <AmountRangeSelector
+          value={[min, max]}
+          min={min - 400}
+          max={max + 400}
+          step={100}
+        />
+      </div>
+
+      {/* Submit */}
+      <div className="flex justify-end pt-4">
+        <Button
+          className=" w-[calc(100%-2rem)] sm:w-[200px] md:w-[300px] text-black border border-[#FF77A5] bg-[#FF77A5] hover:text-white hover:bg-[#ff6699]"
+          type="submit"
+          disabled={selectedServices.length === 0 || days === 0 || email === ""}
+        >
+          Submit
+        </Button>
+      </div>
+    </form>
   );
 };
 

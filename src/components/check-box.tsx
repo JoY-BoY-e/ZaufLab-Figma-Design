@@ -17,7 +17,7 @@ const CheckboxBox = React.forwardRef<HTMLInputElement, CheckboxBoxProps>(
 className='peer h-5 w-5 appearance-none rounded-sm border border-gray-300 bg-white checked:bg-white focus:ring-2 focus:ring-[#FF77A5]'
           {...props}
         />
-        <span className='pointer-events-none absolute left-[2px] top-1 hidden size-3 peer-checked:block'>
+        <span className='pointer-events-none absolute left-[2px] top-[2px] hidden size-3 peer-checked:block'>
           <Check className='h-4 w-4 text-[#ce205a]' />
         </span>
 

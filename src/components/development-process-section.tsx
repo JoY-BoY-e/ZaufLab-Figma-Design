@@ -1,6 +1,5 @@
 'use client';
 
-import { Trophy } from 'lucide-react';
 import Image from 'next/image';
 
 const steps = [
@@ -55,11 +54,11 @@ export default function DevelopmentProcess() {
       </div>
 
       {/* Top 3 Cards */}
-      <div className="relative grid md:grid-cols-3 gap-6 mb-16">
+      <div className="relative grid md:grid-cols-3 gap-3 md:gap-6 mb-3 md:mb-16">
         {steps.slice(0, 3).map((step, idx) => (
           <div
             key={idx}
-            className="max-w-[320px] relative right-3 z-10 p-6 bg-white rounded-lg shadow-sm border text-left mb-8"
+            className="md:max-w-[320px] relative md:right-3 z-10 p-6 bg-white rounded-lg shadow-sm border text-left md:mb-8"
           >
             <div className="absolute left-1/2 transform -translate-x-1/2 top-full w-[0.2rem] h-12 bg-pink-500 hidden md:block" />
             <h4 className="text-lg font-bold text-pink-700 mb-4">
@@ -95,11 +94,11 @@ export default function DevelopmentProcess() {
       </div>
 
       {/* Bottom 3 Cards */}
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-3 md:gap-6">
         {steps.slice(3, 6).map((step, idx) => (
           <div
             key={idx}
-            className="max-w-[320px] relative left-3 z-10 p-6 bg-white rounded-lg shadow-sm border text-left"
+            className="md:max-w-[320px] relative md:left-3 z-10 p-6 bg-white rounded-lg shadow-sm border text-left"
           >
             <div className="absolute left-1/2 transform translate-x-10 bottom-full w-[0.2rem] h-10 bg-pink-500 hidden md:block" />
             <h4 className="text-lg font-bold text-pink-700 mb-4">

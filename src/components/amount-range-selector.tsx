@@ -19,7 +19,7 @@ const AmountRangeSelector: React.FC<AmountRangeSelectorProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`w-full ${className} py-2`}>
+    <div className={` ${className} py-2`}>
       <div className='relative w-full'>
         <SliderPrimitive.Root
           className='relative flex w-full touch-none select-none items-center'
@@ -40,7 +40,7 @@ const AmountRangeSelector: React.FC<AmountRangeSelectorProps> = ({
                 <SliderPrimitive.Thumb className='transition-all duration-200 ease-in-out relative z-10 block size-4 rounded-full border-4 border-white bg-[#FF77A5] shadow-md focus:outline-none p-[6px]' />
                 <div
                   className='text-gray-700 absolute top-6 text-xs'
-                  style={{ left: `calc(${percent}% - 12px)` }}
+                  style={{ left: `calc(${percent}% - 22px)` }}
                 >
                   ${val}
                 </div>
