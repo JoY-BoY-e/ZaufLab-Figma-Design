@@ -62,7 +62,7 @@ export function GreatSoftwareSection() {
                   </blockquote>
                   <div className="flex items-center gap-3">
                     <Image
-                      src="https://randomuser.me/api/portraits/women/44.jpg"
+                      src="https://xsgames.co/randomusers/avatar.php?g=female"
                       alt={item.name}
                       width={50}
                       height={50}
