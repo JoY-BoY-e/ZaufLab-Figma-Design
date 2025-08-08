@@ -9,7 +9,7 @@ const testimonials = [
 	{
 		name: "Sarah Johnson",
 		role: "CEO, TechStart Inc.",
-		avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+		avatar: "https://xsgames.co/randomusers/avatar.php?g=female",
 		content:
 			"Without any doubt I recommend Alcaline Solutions as one of the best web design and digital marketing agencies. One of the best agencies I've come across so far. Wouldn't be hesitated to introduce their work to someone else.",
 		rating: 5,
@@ -17,14 +17,14 @@ const testimonials = [
 	{
 		name: "Michael Chen",
 		role: "Product Manager, InnovateNow",
-		avatar: "https://randomuser.me/api/portraits/men/65.jpg",
+		avatar: "https://xsgames.co/randomusers/avatar.php?g=male",
 		content: "They're incredibly professional and delivered a strong product.",
 		rating: 5,
 	},
 	{
 		name: "Emily Rodriguez",
 		role: "Marketing Director, GrowthCo",
-		avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+		avatar: "https://xsgames.co/randomusers/avatar.php?g=female",
 		content:
 			"Their expertise in digital marketing helped us grow immensely.",
 		rating: 5,
@@ -32,14 +32,14 @@ const testimonials = [
 	{
 		name: "David Thompson",
 		role: "Founder, StartupXYZ",
-		avatar: "https://randomuser.me/api/portraits/men/12.jpg",
+		avatar: "https://xsgames.co/randomusers/avatar.php?g=male",
 		content: "Professional, reliable, and results-driven. Highly recommended.",
 		rating: 5,
 	},
 	{
 		name: "Lisa Wang",
 		role: "CTO, DevCorp",
-		avatar: "https://randomuser.me/api/portraits/women/22.jpg",
+		avatar: "https://xsgames.co/randomusers/avatar.php?g=female",
 		content:
 			"Technical excellence and great communication throughout the project.",
 		rating: 5,
