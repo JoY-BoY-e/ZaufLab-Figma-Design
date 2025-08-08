@@ -14,8 +14,8 @@ const config: Config = {
           dark: "#36004e",
         },
         accent: "#F76680",
-        muted: "#666666",
-        mutedForeground: "#333333",
+        muted: "#4B5563", // Changed from #666666 to darker gray for better contrast
+        mutedForeground: "#1F2937", // Changed from #333333 to darker gray
         foreground: "#000000",
         //service-section
         cardBg: "#FAFAFA",
@@ -32,7 +32,7 @@ const config: Config = {
           500: "#ECC94B",
         },
         header: {
-          text: "#4A5568", // text-gray-700
+          text: "#374151", // text-gray-700 (darker for better contrast)
           hover: "#000000",
           border: "#E2E8F0", // border-gray-200
           background: "#FFFFFF",
@@ -40,24 +40,24 @@ const config: Config = {
         footer: {
           bg: "#ffffff",
           border: "#E2E8F0", // border-gray-200
-          text: "#6B7280", // text-gray-500
+          text: "#374151", // text-gray-700 (darker for better contrast)
           link: "#1F2937", // text-gray-800
           icon: "#374151", // text-gray-700
-          muted: "#9CA3AF", // text-gray-400
+          muted: "#6B7280", // text-gray-500 (darker for better contrast)
         },
         featured: {
-          heading: "#2D3748", // text-gray-700
-          title: "#1A202C", // text-gray-900
+          heading: "#1F2937", // text-gray-800 (darker for better contrast)
+          title: "#111827", // text-gray-900 (darker for better contrast)
           linkText: "#000000", // fallback for arrow icons
         },
         //great softeware
         section: {
           background: "#ffffff",
-          heading: "#1A202C", // text-gray-900
-          subheading: "#2D3748", // text-gray-800
-          body: "#4A5568", // text-gray-600
+          heading: "#111827", // text-gray-900 (darker for better contrast)
+          subheading: "#1F2937", // text-gray-800 (darker for better contrast)
+          body: "#374151", // text-gray-700 (darker for better contrast)
           quote: "#6B46C1", // violet-500
-          role: "#718096", // text-gray-500
+          role: "#6B7280", // text-gray-500 (darker for better contrast)
         },
 
         light: {

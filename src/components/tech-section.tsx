@@ -77,19 +77,23 @@ export default function TechStackTabs() {
   const [activeTab, setActiveTab] = useState<TabName>("Backend");
 
   return (
-    <div className="flex-1 w-full px-4 py-15 md:py-20 text-center justify-center items-center mb-12">
+    <section className="flex-1 w-full px-4 py-15 md:py-20 text-center justify-center items-center mb-12">
       {/* Use a utility class instead of hard-coded colors */}
         <div className="mx-auto h-[0.4rem] w-20 bg-featured-gradient mb-8 rounded-full" />
 
-      <h2 className="text-4xl tracking-widest mb-4">Our</h2>
-      <h1 className="text-4xl md:text-4xl font-bold mt-1 mb-16">Tech Stack</h1>
+      <h2 className="text-4xl tracking-widest mb-4">
+        Our <span className="block font-bold mt-1">Tech Stack</span>
+      </h2>
 
-      <div className="flex justify-center space-x-6 md:space-x-10 mb-20 flex-wrap">
+      <div className="flex justify-center space-x-6 md:space-x-10 mb-20 flex-wrap gap-y-4" role="tablist" aria-label="Technology categories">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`text-sm md:text-base lg:text-lg xl:text-xl font-medium border-b-2 pb-1 transition-all duration-300 ${
+            role="tab"
+            aria-selected={activeTab === tab}
+            aria-controls={`tech-panel-${tab.toLowerCase()}`}
+            className={`min-h-[44px] px-4 py-2 text-sm md:text-base lg:text-lg xl:text-xl font-medium border-b-2 pb-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF77A5] focus:ring-opacity-50 rounded-t ${
               activeTab === tab
                 ? "text-brand-gradient border-brand"
                 : "text-muted border-transparent hover:text-foreground"
@@ -100,27 +104,32 @@ export default function TechStackTabs() {
         ))}
       </div>
 
-      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 max-w-4xl mx-auto">
+      <div 
+        className="flex flex-wrap justify-center items-center gap-4 md:gap-6 max-w-4xl mx-auto"
+        role="tabpanel"
+        id={`tech-panel-${activeTab.toLowerCase()}`}
+        aria-labelledby={`tech-tab-${activeTab.toLowerCase()}`}
+      >
         {techStack[activeTab]?.map((tech) => (
           <div
             key={tech.name}
-            className="flex flex-col items-center w-24 md:w-28 lg:w-32 xl:w-36 p-4 bg-white "
+            className="flex flex-col items-center w-24 md:w-28 lg:w-32 xl:w-36 p-4 bg-white rounded-lg hover:shadow-lg transition-shadow"
           >
             <div className="w-full flex items-center justify-center">
               <Image
                 src={tech.src}
-                alt={tech.name}
-                width={64}
-                height={64}
-                className="object-contain w-full h-full"
+                alt={`${tech.name} logo`}
+                width={48}
+                height={48}
+                className="object-contain w-full"
+                loading="lazy"
+                sizes="48px"
               />
             </div>
-            {/* <span className="text-xs md:text-sm text-muted text-center mt-2">
-              {tech.name}
-            </span> */}
+            <span className="sr-only">{tech.name}</span>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

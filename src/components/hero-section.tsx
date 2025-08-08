@@ -15,12 +15,11 @@ export function HeroSection() {
             <div className="max-w-2xl">
               <div className="mb-16">
                 {/* Headline */}
-                <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl 2xl:text-6xl font-light text-foreground leading-tight mb-3">
+                <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl 2xl:text-6xl font-light text-foreground leading-tight mb-6">
                   Great <span className="text-highlight-software">software</span> is
-                </h1>
-
-                <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl 2xl:text-6xl font-extrabold text-foreground leading-tight mb-6">
-                  built by great <span className="text-highlight-teams">teams</span>
+                  <span className="block font-extrabold mt-2">
+                    built by great <span className="text-highlight-teams">teams</span>
+                  </span>
                 </h1>
 
                 {/* Description */}
@@ -32,8 +31,11 @@ export function HeroSection() {
 
                 {/* Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="px-6 py-3 rounded-md text-white text-sm font-semibold shadow-lg bg-brand-gradient hover:opacity-90 transition">
-                    Let’s get started!
+                  <button 
+                    className="min-h-[44px] px-8 py-3 rounded-md text-white text-sm font-semibold shadow-lg bg-brand-gradient hover:opacity-90 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none transition-all"
+                    aria-label="Start your project with our team"
+                  >
+                    Let&apos;s get started!
                   </button>
 
                   {/* Secondary button can be optionally added */}
@@ -50,11 +52,11 @@ export function HeroSection() {
             <div className="flex justify-center">
               <Image
                 src="/web-dev.png"
-                alt="Workspace Illustration"
-                
+                alt="Workspace illustration showing team collaboration and development"
                 width={500}
                 height={500}
                 className="max-w-full h-auto"
+                priority
               />
             </div>
           </div>

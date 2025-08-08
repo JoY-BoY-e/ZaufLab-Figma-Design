@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@tailwind utilities;
+@import "../styles/slider.css";
 @tailwind base;
 @tailwind components;
-
-
+@tailwind utilities;
 
 body {
   font-family: 'Inter', sans-serif;
@@ -32,6 +31,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Accessibility improvements */
 @layer base {
   body {
     font-family: 'Inter', sans-serif;
@@ -40,9 +40,35 @@ html {
   h1, h2 {
     letter-spacing: -0.5px;
   }
+
+  /* Focus styles for better accessibility */
+  *:focus {
+    outline: 2px solid #FF77A5;
+    outline-offset: 2px;
+  }
+
+  /* Ensure minimum touch target sizes */
+  button, a, input, textarea, select {
+    min-height: 20px;
+    min-width: 20px;
+  }
+
+  /* Skip link for screen readers */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1000;
+  }
+  
+  .skip-link:focus {
+    top: 6px;
+  }
 }
-
-
 
 @layer utilities {
   .text-brand-gradient {
@@ -51,10 +77,69 @@ html {
   .bg-brand-gradient {
     background-image: linear-gradient(to right, #57007B, #F76680);
   }
-  .border-brand {
-    border-color: #F76680;
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .text-muted {
+      color: #000000 !important;
+    }
+    .bg-gray-200 {
+      background-color: #ffffff !important;
+      border: 2px solid #000000 !important;
+    }
   }
-  .border-brand-accent {
-    border-color: #F76680;
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
+
+  /* Enhanced focus indicators */
+  .focus-visible:focus {
+    outline: 2px solid #FF77A5;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Better contrast for interactive elements */
+  .interactive-element {
+    @apply min-h-[44px] min-w-[44px] p-2 rounded transition-all;
+  }
+  
+  .interactive-element:hover {
+    @apply bg-gray-100;
+  }
+  
+  .interactive-element:focus {
+    @apply ring-2 ring-[#FF77A5] ring-opacity-50 outline-none;
+  }
+}
+
+/* Color contrast improvements */
+.text-muted {
+  color: #4B5563 !important; /* Darker gray for better contrast */
+}
+
+.text-gray-600 {
+  color: #374151 !important; /* Darker for better contrast */
+}
+
+.text-gray-500 {
+  color: #6B7280 !important; /* Darker for better contrast */
+}
+
+.text-gray-400 {
+  color: #9CA3AF !important; /* Keep as fallback but ensure good contrast */
+}
+
+.border-brand {
+  border-color: #F76680;
+}
+
+.border-brand-accent {
+  border-color: #F76680;
 }

@@ -44,30 +44,31 @@ export function ServicesSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
-    
     mode: "snap",
     loop: true,
-
     slideChanged(slider) {
-    setCurrentSlide(slider.track.details.rel);
-  },
-  slides: {
-    perView: 1.2,
-    spacing: 12,
-  },
-  breakpoints: {
-    "(min-width: 768px)": {
-      slides: { perView: 1.5, spacing: 12 },
+      setCurrentSlide(slider.track.details.rel);
     },
-    "(min-width: 1024px)": {
-      slides: { perView: 2.5, spacing: 12 },
+    slides: {
+      perView: 1.2,
+      spacing: 12,
     },
-    "(min-width: 1280px)": {
-      slides: { perView: 3, spacing: 16 },
+    breakpoints: {
+      "(min-width: 768px)": {
+        slides: {
+          perView: 2.2,
+          spacing: 16,
+        },
+      },
+      "(min-width: 1024px)": {
+        slides: {
+          perView: 3.2,
+          spacing: 20,
+        },
+      },
     },
-  },
   });
-
+  
   return (
     <section id="services" className="py-12 sm:py-16 bg-brand/5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,17 +79,17 @@ export function ServicesSection() {
 
         {/* Slider */}
         <div ref={sliderRef} className="keen-slider group overflow-visible relative">
-          {services.map((service, index) => {
-            const isHovered = hoveredIndex === index;
-            const isOtherHovered = hoveredIndex !== null && !isHovered;
-
+          {services.map((service, idx) => {
+            const isHovered = hoveredIndex === idx;
+            const isOtherHovered = hoveredIndex !== null && hoveredIndex !== idx;
+            
             return (
               <div
-                key={index}
+                key={idx}
                 className="keen-slider__slide flex items-center justify-center overflow-visible py-5"
               >
                 <Card
-                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseEnter={() => setHoveredIndex(idx)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   className={`
                     flex flex-col justify-between bg-cardBg rounded-[7px]
@@ -129,14 +130,13 @@ export function ServicesSection() {
           })}
         </div>
 
-        
         {/* Pagination Dots */}
         <div className="mt-8 flex justify-center gap-2">
           {services.map((_, idx) => (
             <button
               key={idx}
               onClick={() => slider.current?.moveToIdx(idx)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              className={`w-[1px] h-[1px] rounded-full transition-all duration-300 ${
                 idx === currentSlide
                   ? "bg-accent"
                   : "bg-accent/20 hover:bg-accent/40"

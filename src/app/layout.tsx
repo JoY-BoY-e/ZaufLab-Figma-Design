@@ -7,12 +7,14 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-geist-mono", 
   subsets: ["latin"],
   display: "swap",
+  preload: false, // Only preload primary font
 });
 
 export const metadata: Metadata = {
@@ -72,11 +74,22 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.simpleicons.org" />
+        <link rel="dns-prefetch" href="https://randomuser.me" />
+        <link rel="dns-prefetch" href="https://upload.wikimedia.org" />
+        <link rel="preload" href="/web-dev.png" as="image" type="image/png" />
+        <link rel="preload" href="/about-us.png" as="image" type="image/png" />
         <StructuredData />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground`}
       >
+        <a 
+          href="#main-content" 
+          className="skip-link bg-black text-white px-4 py-2 rounded text-sm font-medium"
+        >
+          Skip to main content
+        </a>
         <div className="relative flex min-h-screen flex-col">
           {children}
         </div>

@@ -1,5 +1,29 @@
 import Image from "next/image";
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import Link from "next/link";
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    Icon: Facebook,
+    href: "https://www.facebook.com/yourpage",
+  },
+  {
+    name: "Instagram",
+    Icon: Instagram,
+    href: "https://www.instagram.com/yourpage",
+  },
+  {
+    name: "Twitter",
+    Icon: Twitter,
+    href: "https://www.twitter.com/yourpage",
+  },
+  {
+    name: "LinkedIn",
+    Icon: Linkedin,
+    href: "https://www.linkedin.com/company/yourpage",
+  },
+];
 
 export function Footer() {
   return (
@@ -17,7 +41,10 @@ export function Footer() {
                 className="h-14 w-auto"
               />
             </div>
-            <p className="mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p className="mb-4">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </p>
             <Image
               src="/logos/googleLogo.png"
               alt="Google performance"
@@ -31,13 +58,13 @@ export function Footer() {
           <div className="flex flex-col space-y-2">
             <h4 className="font-semibold text-footer-link mb-2">Links</h4>
             {[
-              'About Us',
-              'Services',
-              'Case Studies',
-              'How it works',
-              'Blog',
-              'Careers',
-              'Areas We Serve',
+              "About Us",
+              "Services",
+              "Case Studies",
+              "How it works",
+              "Blog",
+              "Careers",
+              "Areas We Serve",
             ].map((label) => (
               <a
                 key={label}
@@ -53,18 +80,22 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-footer-link mb-2">Contact us</h4>
             <p className="mb-2">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
             </p>
             <p className="text-footer-icon font-medium mb-4">+908 89097 890</p>
             <div className="flex space-x-3 justify-end mt-10">
-              {[Facebook, Instagram, Twitter, Linkedin].map((Icon, index) => (
-                <a
+              {socialLinks.map(({ name, Icon, href }, index) => (
+                <Link
                   key={index}
-                  href="#"
+                  href={href}
+                  aria-label={`Visit our ${name} page`}
                   className="w-9 h-9 rounded-full shadow-md bg-white flex items-center justify-center hover:shadow-lg transition"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   <Icon className="w-4 h-4 text-footer-icon" />
-                </a>
+                </Link>
               ))}
             </div>
           </div>

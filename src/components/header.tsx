@@ -49,7 +49,7 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center">
-            <Button className="rounded-[5px] bg-header-cta text-white text-sm font-semibold px-6 py-2 h-[42px] w-[124px] transition hover:opacity-90">
+            <Button className="min-h-[44px] px-6 py-3 rounded-[5px] bg-header-cta text-white text-sm font-semibold transition-all hover:opacity-90 focus:ring-2 focus:ring-[#FF77A5] focus:ring-opacity-50 focus:outline-none">
               Contact us
             </Button>
           </div>
@@ -60,7 +60,10 @@ export function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="h-10 w-10 p-0"
+              className="h-10 w-10 p-0 min-h-[44px] min-w-[44px]"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             >
               <svg
                 className="h-6 w-6"
@@ -70,6 +73,7 @@ export function Header() {
                 strokeWidth="2"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 {mobileMenuOpen ? (
                   <path d="M6 18L18 6M6 6l12 12" />
@@ -83,23 +87,28 @@ export function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-2">
-            <div className="rounded-md border bg-white px-4 py-3">
+          <nav 
+            className="lg:hidden mt-2" 
+            id="mobile-menu" 
+            role="navigation"
+            aria-label="Mobile navigation"
+          >
+            <div className="rounded-md border bg-white px-4 py-3 shadow-lg">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block py-2 text-sm font-medium text-header-text hover:text-header-hover"
+                  className="block py-3 text-sm font-medium text-header-text hover:text-header-hover focus:text-header-hover focus:outline-none focus:ring-2 focus:ring-[#FF77A5] focus:ring-opacity-50 rounded transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button className="mt-3 w-full bg-header-cta text-white rounded-[5px] font-semibold h-[42px]">
+              <Button className="mt-4 w-full min-h-[44px] bg-header-cta text-white rounded-[5px] font-semibold hover:opacity-90 focus:ring-2 focus:ring-[#FF77A5] focus:ring-opacity-50 transition-all">
                 Contact us
               </Button>
             </div>
-          </div>
+          </nav>
         )}
       </div>
     </header>

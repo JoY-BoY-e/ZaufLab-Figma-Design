@@ -37,21 +37,14 @@ export default function FeaturedResources() {
     loop: true,
     mode: "free-snap",
     slides: {
-      perView: 5, // increased from 4
-      spacing: 20, // optional: reduce spacing a little
+      perView: 4.2,
+      spacing: 20,
     },
     breakpoints: {
-      "(max-width: 1840px)": {
-        slides: {
-          perView: 4, // slightly more than 3
-          spacing: 20,
-        },
-      },
-
       "(max-width: 1280px)": {
         slides: {
-          perView: 3.5, // slightly more than 4
-          spacing: 20,
+          perView: 3.2,
+          spacing: 16,
         },
       },
       "(max-width: 1024px)": {
@@ -63,7 +56,7 @@ export default function FeaturedResources() {
       "(max-width: 640px)": {
         slides: {
           perView: 1.2,
-          spacing: 12,
+          spacing: 16,
         },
       },
     },
@@ -84,13 +77,15 @@ export default function FeaturedResources() {
               key={idx}
               className="keen-slider__slide bg-white p-6 rounded-lg min-w-[220px] max-w-[240px]"
             >
-              <div className="rounded-lg overflow-hidden mb-6">
+              <div className="h-[180px] rounded-lg overflow-hidden mb-6">
                 <Image
                   src={res.image}
-                  alt={`Resource ${idx}`}
-                  width={300}
-                  height={400}
-                  className="object-cover w-full h-52 rounded"
+                  alt={`Resource: ${res.title}`}
+                  width={240}
+                  height={180}
+                  className="object-cover w-full rounded"
+                  loading="lazy"
+                  sizes="240px"
                 />
               </div>
               <h4 className="text-md font-light text-featured-heading mb-6 leading-snug">

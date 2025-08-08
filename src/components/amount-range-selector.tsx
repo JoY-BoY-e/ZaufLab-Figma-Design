@@ -19,14 +19,19 @@ const AmountRangeSelector: React.FC<AmountRangeSelectorProps> = ({
   className = '',
 }) => {
   return (
-    <div className={` ${className} py-2`}>
+    <div className={`py-4 ${className}`}>
       <div className='relative w-full'>
         <SliderPrimitive.Root
-          className='relative flex w-full touch-none select-none items-center'
+          className='relative flex w-full touch-none select-none items-center h-8'
           min={min}
           max={max}
           step={step}
           value={value}
+          aria-label="Budget range selector"
+          aria-valuemin={min}
+          aria-valuemax={max}
+          aria-valuenow={value[0]}
+          aria-valuetext={`Budget range from $${value[0]} to $${value[1]}`}
         >
           <SliderPrimitive.Track className='relative h-2 w-full grow overflow-hidden rounded-full bg-[#E6E6E6]'>
             <SliderPrimitive.Range className='absolute h-full bg-[#FF77A5]' />
@@ -37,12 +42,16 @@ const AmountRangeSelector: React.FC<AmountRangeSelectorProps> = ({
 
             return (
               <React.Fragment key={index}>
-                <SliderPrimitive.Thumb className='transition-all duration-200 ease-in-out relative z-10 block size-4 rounded-full border-4 border-white bg-[#FF77A5] shadow-md focus:outline-none p-[6px]' />
+                <SliderPrimitive.Thumb 
+                  className='transition-all duration-200 ease-in-out relative z-10 block size-5 rounded-full border-4 border-white bg-[#FF77A5] shadow-md focus:outline-none focus:ring-2 focus:ring-[#FF77A5] focus:ring-opacity-50 cursor-pointer hover:scale-110'
+                  aria-label={`Set budget ${index === 0 ? 'minimum' : 'maximum'} to $${val}`}
+                />
                 <div
-                  className='text-gray-700 absolute top-6 text-xs'
-                  style={{ left: `calc(${percent}% - 22px)` }}
+                  className='text-gray-700 absolute top-8 text-sm font-medium pointer-events-none'
+                  style={{ left: `calc(${percent}% - 32px)` }}
+                  aria-hidden="true"
                 >
-                  ${val}
+                  ${val.toLocaleString()}
                 </div>
               </React.Fragment>
             )

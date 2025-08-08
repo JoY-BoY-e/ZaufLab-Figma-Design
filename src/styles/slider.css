@@ -1,0 +1,11 @@
+/* Centralized keen-slider styles */
+@import "keen-slider/keen-slider.min.css";
+
+/* Custom slider optimizations */
+.keen-slider {
+  will-change: transform;
+}
+
+.keen-slider__slide {
+  will-change: transform;
+}

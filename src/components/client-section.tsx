@@ -3,7 +3,6 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useRef } from "react";
 import Image from "next/image";
 
 const logos = [
@@ -14,8 +13,6 @@ const logos = [
   { name: "Hasura", src: "https://cdn.simpleicons.org/hasura" },
   { name: "Plausible Analytics", src: "https://cdn.simpleicons.org/plausibleanalytics" },
 ];
-
-
 
 export function ClientsSection() {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -62,12 +59,16 @@ export function ClientsSection() {
         {/* Carousel Controls */}
         <div className="flex space-x-4 m-4 justify-end items-center">
           <button
+            name="prev"
+            aria-label="Previous"
             onClick={() => instanceRef.current?.prev()}
             className="w-10 h-10 rounded-full border border-light-purpleBorder text-light-purpleBorder hover:bg-light-purpleHover flex items-center justify-center transition"
           >
             <ArrowLeft size={16} />
           </button>
           <button
+            name="next"
+            aria-label="Next"
             onClick={() => instanceRef.current?.next()}
             className="w-10 h-10 rounded-full bg-light-purpleBorder text-white hover:bg-light-purpleDark flex items-center justify-center transition"
           >
@@ -79,27 +80,25 @@ export function ClientsSection() {
       {/* Logo Slider */}
       <div
         ref={sliderRef}
-        className="keen-slider  sm:h-50 md:h-56 lg:h-60  bg-light-lavender rounded-lg p-6"
+        className="keen-slider sm:h-50 md:h-56 lg:h-60 bg-light-lavender rounded-lg p-6"
       >
-       {logos.map((logo, idx) => (
-  <div
-    key={idx}
-    className="keen-slider__slide flex flex-col justify-center items-center p-4"
-  >
-    <Image
-      src={logo.src}
-      width={200}
-      height={100}
-      alt={logo.name}
-      title={logo.name}
-      draggable={false}
-      loading="lazy"
-      className="object-contain h-20 sm:h-24"
-    />
-   
-  </div>
-))}
-
+        {logos.map((logo, idx) => (
+          <div
+            key={idx}
+            className="keen-slider__slide flex flex-col justify-center items-center p-4"
+          >
+            <Image
+              src={logo.src}
+              width={200}
+              height={100}
+              alt={logo.name}
+              title={logo.name}
+              draggable={false}
+              loading="lazy"
+              className="object-contain h-20 sm:h-24"
+            />
+          </div>
+        ))}
       </div>
     </section>
   );
