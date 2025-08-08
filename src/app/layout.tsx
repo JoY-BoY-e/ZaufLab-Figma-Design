@@ -84,12 +84,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground`}
       >
-        <a 
-          href="#main-content" 
-          className="skip-link bg-black text-white px-4 py-2 rounded text-sm font-medium"
-        >
-          Skip to main content
-        </a>
+        
         <div className="relative flex min-h-screen flex-col">
           {children}
         </div>
