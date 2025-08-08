@@ -1,18 +1,14 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-
-const navigation = [
-  { name: 'About us', href: '#aboutus' },
-  { name: 'Services', href: '#services' },
-  { name: 'Case Studies', href: '#casestudies' },
-  { name: 'Blog', href: '#blog' },
-  { name: 'How it Works', href: '#howitworks' },
-  { name: 'Hire', href: '#hire' },
-];
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { navigation } from "./header.const";
+import dynamic from "next/dynamic";
+const HeaderMenuMobile = dynamic(() => import("./header-menu-mobile"), {
+  ssr: false,
+});
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -63,7 +59,11 @@ export function Header() {
               className="h-10 w-10 p-0 min-h-[44px] min-w-[44px]"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
-              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-label={
+                mobileMenuOpen
+                  ? "Close navigation menu"
+                  : "Open navigation menu"
+              }
             >
               <svg
                 className="h-6 w-6"
@@ -87,28 +87,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <nav 
-            className="lg:hidden mt-2" 
-            id="mobile-menu" 
-            role="navigation"
-            aria-label="Mobile navigation"
-          >
-            <div className="rounded-md border bg-white px-4 py-3 shadow-lg">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block py-3 text-sm font-medium text-header-text hover:text-header-hover focus:text-header-hover focus:outline-none focus:ring-2 focus:ring-[#FF77A5] focus:ring-opacity-50 rounded transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <Button className="mt-4 w-full min-h-[44px] bg-header-cta text-white rounded-[5px] font-semibold hover:opacity-90 focus:ring-2 focus:ring-[#FF77A5] focus:ring-opacity-50 transition-all">
-                Contact us
-              </Button>
-            </div>
-          </nav>
+          <HeaderMenuMobile setMobileMenuOpen={setMobileMenuOpen} />
         )}
       </div>
     </header>
