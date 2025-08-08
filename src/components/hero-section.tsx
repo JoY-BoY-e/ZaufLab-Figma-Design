@@ -57,6 +57,7 @@ export function HeroSection() {
                 height={500}
                 className="max-w-full h-auto"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           </div>
