@@ -1,21 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import StructuredData from "@/components/structured-data";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
   preload: true,
-});
+  variable: '--font-inter', // CSS variable
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono", 
-  subsets: ["latin"],
-  display: "swap",
-  preload: false, // Only preload primary font
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://yourdigitalagency.com'),
@@ -71,18 +66,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://cdn.simpleicons.org" />
-        <link rel="dns-prefetch" href="https://randomuser.me" />
-        <link rel="dns-prefetch" href="https://upload.wikimedia.org" />
-        <link rel="preload" href="/web-dev.png" as="image" type="image/png" />
-        <link rel="preload" href="/about-us.png" as="image" type="image/png" />
-        <StructuredData />
-      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground`}
+        className={`${inter.variable} antialiased min-h-screen bg-background text-foreground`}
       >
         
         <div className="relative flex min-h-screen flex-col">
