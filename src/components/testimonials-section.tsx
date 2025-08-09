@@ -95,7 +95,7 @@ export default function TestimonialsSection() {
 				setActiveIndex(2);
 			}, 100);
 		}
-	}, [mounted]);
+	}, [mounted, instanceRef]);
 
 	const handlePrev = () => {
 		instanceRef.current?.prev();

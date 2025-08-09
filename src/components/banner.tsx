@@ -1,5 +1,3 @@
-'use client';
-
 export function HireBanner() {
   return (
     <section id="hire" className="px-4 py-12 sm:px-6 lg:px-8">
