@@ -31,7 +31,9 @@ export function CaseStudySection() {
         {/* Header */}
         <div className="text-center mb-28">
           <h2 className="text-4xl text-mutedForeground mb-4">Our recent</h2>
-          <h1 className="text-4xl sm:text-4xl font-bold text-foreground">Case studies</h1>
+          <h1 className="text-4xl sm:text-4xl font-bold text-foreground">
+            Case studies
+          </h1>
         </div>
 
         {/* Case Study Cards */}
@@ -43,16 +45,16 @@ export function CaseStudySection() {
             >
               {/* Image - left side */}
               <div className="relative w-full aspect-video lg:w-1/2">
-  <Image
-    src={item.image}
-    alt={item.title}
-    fill
-    className="object-cover w-full h-full"
-    priority={idx === 0}
-    loading={idx === 0 ? "eager" : "lazy"}
-    sizes="(max-width: 1024px) 100vw, 50vw"
-  />
-</div>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover w-full h-full"
+                  priority={idx === 0}
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
 
               {/* Content - right side */}
               <div className="lg:w-1/2 w-full p-6 sm:p-8 lg:p-10 flex flex-col justify-start">
