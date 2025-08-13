@@ -106,9 +106,16 @@ const ServicesQuoteForm: React.FC = () => {
         <legend className="block text-sm font-medium text-gray-900 mb-3">
           Why are you contacting us?
         </legend>
-        <div className="flex flex-wrap items-start gap-4 pt-1" role="group" aria-labelledby="services-legend">
+        <div
+          className="flex flex-wrap items-start gap-4 pt-1"
+          role="group"
+          aria-labelledby="services-legend"
+        >
           {SERVICES.map(({ label, key }) => (
-            <div key={key} className="flex items-start gap-3 min-h-[44px] p-2 rounded hover:bg-gray-50">
+            <div
+              key={key}
+              className="flex items-start gap-3 min-h-[44px] p-2 rounded hover:bg-gray-50"
+            >
               <CheckboxBox
                 id={`service-${key}`}
                 aria-describedby={`service-${key}-desc`}
@@ -151,7 +158,10 @@ const ServicesQuoteForm: React.FC = () => {
 
       {/* Email Input */}
       <div className="space-y-2 rounded-md bg-[#F9F9F9] px-4 py-6">
-        <label htmlFor="email" className="block text-sm font-medium text-gray-900">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-900"
+        >
           Your email address
         </label>
         <input
@@ -163,7 +173,11 @@ const ServicesQuoteForm: React.FC = () => {
           placeholder="Enter your email address..."
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          aria-invalid={email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? "true" : "false"}
+          aria-invalid={
+            email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+              ? "true"
+              : "false"
+          }
         />
         <p id="email-hint" className="text-xs text-gray-600">
           We&apos;ll use this email to send you the project quote.
@@ -177,7 +191,10 @@ const ServicesQuoteForm: React.FC = () => {
 
       {/* Days Slider */}
       <div className="mx-auto w-[calc(100%-2rem)] space-y-2">
-        <label htmlFor="days-slider" className="block text-sm font-medium text-gray-900">
+        <label
+          htmlFor="days-slider"
+          className="block text-sm font-medium text-gray-900"
+        >
           Project Duration (Days)
         </label>
         <div aria-labelledby="days-slider">
@@ -207,22 +224,21 @@ const ServicesQuoteForm: React.FC = () => {
             step={100}
           />
         </div>
-      </div>
 
-      {/* Submit Button */}
-      <div className="flex justify-end pt-4">
-        <Button
-          className="min-w-[200px] min-h-[44px] px-8 py-3 text-white bg-[#FF77A5] hover:bg-[#ff6699] focus:ring-2 focus:ring-[#FF77A5] focus:ring-opacity-50 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-          type="submit"
-          disabled={selectedServices.length === 0 || days === 0 || email === ""}
-          aria-describedby="submit-requirements"
-        >
-          Submit Quote Request
-        </Button>
+        {/* Submit Button */}
+        <div className="flex justify-end pt-4">
+          <Button
+            className="min-w-[200px] min-h-[44px] px-8 py-3 text-white bg-[#FF77A5] hover:bg-[#ff6699] focus:ring-2 focus:ring-[#FF77A5] focus:ring-opacity-50 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            type="submit"
+            disabled={
+              selectedServices.length === 0 || days === 0 || email === ""
+            }
+            aria-describedby="submit-requirements"
+          >
+            Submit
+          </Button>
+        </div>
       </div>
-      <p id="submit-requirements" className="text-xs text-gray-600 text-center mt-2">
-        Please select at least one service and provide your email to submit the quote request.
-      </p>
     </form>
   );
 };

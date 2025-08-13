@@ -49,7 +49,7 @@ export function HeroSection() {
             {/* Right Content - Workspace Illustration */}
             <div className="flex justify-center">
               <Image
-                src="/web-dev.png"
+                src="/web-dev.webp"
                 alt="Workspace illustration showing team collaboration and development"
                 width={500}
                 height={500}
